@@ -50,7 +50,16 @@ public final class GameOfLifeTest {
 
         game.setAlive(0,0);
         game.nextGeneration();
-        assertEquals(expectedValue, gamel.getBoard());
+        assertEquals(expectedValue, game.getBoard());
+
+    }
+
+    @Test
+    public void numberOfNeigors() {
+        assertEquals(3, game.numberOfNeigors(0,0));
+        assertEquals(3, game.numberOfNeigors(4,4));
+        assertEquals(5, game.numberOfNeigors(1,0));
+        assertEquals(3, game.numberOfNeigors(0,0));
 
     }
 }
