@@ -38,6 +38,18 @@ public final class GameOfLifeTest {
         assertEquals(expectedValue, game.getBoard());
 
     }
+    @Test
+    public void numberOfNeighbours() {
+        game.setAlive(0,0);
+        assertEquals(1, game.numberOfNeighbours(0, 1));
+
+        game.setAlive(1,0);
+        assertEquals(2, game.numberOfNeighbours(0,1));
+
+        game.setAlive(2, 0);
+        assertEquals(3, game.numberOfNeighbours(1, 1));
+
+    }
 
     @Test
     public void fewerThanTwoNeighboursDies() {
@@ -55,11 +67,54 @@ public final class GameOfLifeTest {
     }
 
     @Test
-    public void numberOfNeigors() {
-        assertEquals(3, game.numberOfNeigors(0,0));
-        assertEquals(3, game.numberOfNeigors(4,4));
-        assertEquals(5, game.numberOfNeigors(1,0));
-        assertEquals(3, game.numberOfNeigors(0,0));
+    public void twoOrThreeNeighborsSurvivesToNextGeneration() {
+        String expectedValue =
+            "01000\n" +
+            "10000\n" +
+            "00000\n" +
+            "00000\n" +
+            "00000\n";
+        game.setAlive(0,0);
+        game.setAlive(1,0);
+        game.setAlive(0,1);
+        game.nextGeneration();
+        assertEquals(expectedValue, game.getBoard());
+
+        expectedValue =
+            "11000\n" +
+            "11000\n" +
+            "00000\n" +
+            "00000\n" +
+            "00000\n";
+
+        game.setAlive(0,0);
+        game.setAlive(1,1);
+        game.nextGeneration();
+        assertEquals(expectedValue, game.getBoard());
+    }
+
+    @Ignore
+    public void runTheGame() {
+        game.setAlive(0,0);
+        game.nextGeneration();
+        assertEquals(0, game.numberOfNeighbours(0,1));
+
+        System.out.println(game.getBoard());
+
+        game.setAlive(0,0);
+        game.setAlive(1, 0);
+        game.nextGeneration();
+        assertEquals(0, game.numberOfNeighbours(0, 1));
+
+        System.out.println(game.getBoard());
+
+        game.setAlive(0,0);
+        game.setAlive(1, 0);
+        game.setAlive(2, 0);
+        game.nextGeneration();
+        assertEquals(3, game.numberOfNeighbours(1, 1));
+
+        System.out.println(game.getBoard());
 
     }
 }
