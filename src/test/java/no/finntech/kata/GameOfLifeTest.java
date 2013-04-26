@@ -69,8 +69,8 @@ public final class GameOfLifeTest {
     @Test
     public void twoOrThreeNeighborsSurvivesToNextGeneration() {
         String expectedValue =
-            "01000\n" +
-            "10000\n" +
+            "11000\n" +
+            "11000\n" +
             "00000\n" +
             "00000\n" +
             "00000\n";

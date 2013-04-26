@@ -10,9 +10,9 @@ public class GameOfLife {
 
     public String getBoard() {
         String result = "";
-        for (int row = 0; row < board.length; row++) {
-            for (int col = 0; col < board[row].length; col++) {
-                result = result  + board[row][col];
+        for (int[] aBoard : board) {
+            for (int anABoard : aBoard) {
+                result = result + anABoard;
             }
             result += "\n";
         }
@@ -31,8 +31,12 @@ public class GameOfLife {
             for (int col = 0; col < board[row].length; col++) {
                 neighbours = numberOfNeighbours(row, col);
 
-                if (neighbours < 2) {
+                if (neighbours < 2 || neighbours > 3) {
                     tempBoard[row][col] = 0;
+                } else if (neighbours == 3) {
+                    tempBoard[row][col] = 1;
+                } else {
+                    tempBoard[row][col] = board[row][col];
                 }
             }
         }
