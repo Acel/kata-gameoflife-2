@@ -21,7 +21,7 @@ public final class GameOfLifeTest {
     }
 
     @Test
-     public void should_get_a_grid_with_expected_dimensions() {
+     public void shouldGetAGridWithExpectedDimensions() {
         assertNotNull(game);
     }
 
