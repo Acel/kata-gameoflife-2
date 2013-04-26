@@ -3,7 +3,7 @@
     <modelVersion>4.0.0</modelVersion>
 
     <groupId>no.finntech.kata</groupId>
-    <artifactId>template</artifactId>
+    <artifactId>GameOfLife</artifactId>
     <version>0.1-SNAPSHOT</version>
     <packaging>jar</packaging>
 

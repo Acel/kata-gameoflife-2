@@ -2,7 +2,11 @@ package no.finntech.kata;
 
 public class GameOfLife {
 
-    public String GameOfLife(int h, int w) {
-        return "";
+    private int[][] board;
+
+    public GameOfLife(int w, int h) {
+        board = new int[w][h];
     }
+
+
 }
