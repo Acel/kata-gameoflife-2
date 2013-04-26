@@ -27,20 +27,30 @@ public final class GameOfLifeTest {
 
     @Test
     public void addOneLiveCell() {
-        String expectedValue =  "10000\n" +
-                                "00000\n" +
-                                "00000\n" +
-                                "00000\n" +
-                                "00000\n" +
+        String expectedValue =
+            "10000\n" +
+            "00000\n" +
+            "00000\n" +
+            "00000\n" +
+            "00000\n";
 
         game.setAlive(0,0);
         assertEquals(expectedValue, game.getBoard());
 
     }
 
-    @Ignore
+    @Test
     public void fewerThanTwoNeighboursDies() {
+        String expectedValue =
+            "00000\n" +
+            "00000\n" +
+            "00000\n" +
+            "00000\n" +
+            "00000\n";
+
         game.setAlive(0,0);
+        game.nextGeneration();
+        assertEquals(expectedValue, gamel.getBoard());
 
     }
 }
